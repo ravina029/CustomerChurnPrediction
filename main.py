@@ -1,2 +1,19 @@
 from CustomerChurnPrediction import logger
-logger.info("welcome to our custom log")
+
+from CustomerChurnPrediction.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
+#from CustomerChurnPrediction.pipeline.stage_02_data_validation import DataValidationTrainingPipeline
+#from CustomerChurnPrediction.pipeline.stage_03_data_transformation import  DataTransformationTrainingPipeline
+#from CustomerChurnPrediction.pipeline.stage_04_model_trainer import ModelTrainerTrainingPipeline
+#from CustomerChurnPrediction.pipeline.stage_05_model_evaluation import ModelEvaluationTrainingPipeline
+
+
+STAGE_NAME="Data ingestion stage"
+
+try:
+    logger.info(f">>>>>>> stage{STAGE_NAME} started <<<<<<<<")
+    data_ingestion=DataIngestionTrainingPipeline()
+    data_ingestion.main()
+    logger.info(f">>>>>>> stage {STAGE_NAME} completed <<<<<<<\n\nx=============x")
+except Exception as e:
+    logger.exception(e)
+    raise e
