@@ -1,1 +1,26 @@
-ElasticNet: float
+COLUMNS:
+  CustomerId: int64          
+  Surname: object      
+  CreditScore: int64          
+  Geography: object        
+  Gender: object 
+  Age: int64  
+  Tenure: int64  
+  Balance: float64
+  NumOfProducts: int64  
+  HasCrCard: int64  
+  IsActiveMember: int64  
+  EstimatedSalary: float64
+  Complain: int64  
+  Satisfaction Score: int64  
+  Card Type: object 
+  Point Earned: int64  
+
+TARGET_COLUMN: 
+  Exited: int64              
+
+
+
+
+
+  

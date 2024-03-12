@@ -8,3 +8,11 @@ class DataIngestionConfig:
     source_URL: str
     local_data_file: Path
     unzip_dir: Path
+
+
+@dataclass(frozen=True)  #this is not python class but dataclass, here you can define the veriables without using self keyword.
+class DataValidationConfig:
+    root_dir:Path
+    STATUS_FILE:str
+    unzip_data_dir:Path
+    all_schema:dict
