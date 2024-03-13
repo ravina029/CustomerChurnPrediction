@@ -32,7 +32,7 @@ class ModelTrainer:
             raise ValueError(f"Unsupported target variable type: {target_type}. Model supports binary or multiclass classification.")
 
 
-        rfc=RandomForestClassifier(n_estimators=self.config.n_estimators, random_state=self.config.random_state)
+        rfc=RandomForestClassifier(n_estimators=self.config.n_estimators, random_state=self.config.random_state,class_weight='balanced')
         rfc.fit(train_x,train_y)
 
 

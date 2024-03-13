@@ -16,10 +16,11 @@ class DataTransformation:
             #df=df1.drop(['Id'],axis=1,inplace=True)
 
             # Handle categorical variables using one-hot encoding
-            df = pd.get_dummies(df, columns=['Geography', 'Gender', 'Card Type'], dtype=int)
-            logger.info("Categorical columns transformed")
+            #df = pd.get_dummies(df, columns=['Geography', 'Gender', 'Card Type'], dtype=int)
+            #logger.info("Categorical columns transformed")
             # Remove irrelevant columns
-            df = df.drop(['RowNumber', 'CustomerId', 'Surname'], axis=1)
+            df = df.drop(['RowNumber', 'CustomerId', 'Surname',"HasCrCard","Satisfaction Score","Geography",
+                          "Gender","Card Type","CreditScore","Tenure","EstimatedSalary","Point Earned"], axis=1)
             logger.info("Unneccessary columns removed")
 
             train,test=train_test_split(df)
