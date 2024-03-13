@@ -17,7 +17,7 @@ COLUMNS:
   Point Earned: int64  
 
 TARGET_COLUMN: 
-  Exited: int64              
+  name: Exited             
 
 
 
