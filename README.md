@@ -191,4 +191,6 @@ MLflow
 # cloud Deployement url: 
 https://18.233.62.142:5000/
 
-# Demo video of the WebApp
+# Link for Demo video of the WebApp: 
+https://www.youtube.com/watch?v=2Vjy56Mvm-o
+
