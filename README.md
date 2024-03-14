@@ -113,7 +113,7 @@ export MLFLOW_TRACKING_PASSWORD=221d4e3a527ff8b9aef06e059d7efc4e89963e11
 
 	
 ## 3. Create ECR repo to store/save docker image
-    - Save the URI: 381491959516.dkr.ecr.eu-north-1.amazonaws.com/mlproj
+    - Save the URI: 161774582158.dkr.ecr.us-east-1.amazonaws.com/churnpredict
 
 	
 ## 4. Create EC2 machine (Ubuntu) 
@@ -149,9 +149,9 @@ export MLFLOW_TRACKING_PASSWORD=221d4e3a527ff8b9aef06e059d7efc4e89963e11
 
     AWS_REGION = eu-north-1
 
-    AWS_ECR_LOGIN_URI = 381491959516.dkr.ecr.eu-north-1.amazonaws.com/mlproj
+    AWS_ECR_LOGIN_URI = 161774582158.dkr.ecr.us-east-1.amazonaws.com/churnpredict
 
-    ECR_REPOSITORY_NAME = mlproj
+    ECR_REPOSITORY_NAME = churnpredict
 
 
 
