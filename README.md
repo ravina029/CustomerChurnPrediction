@@ -188,4 +188,7 @@ MLflow
  - Logging & tagging your model
 
 
-# aws cloud url for web app: https://18.233.62.142:5000/
+# cloud Deployement url: 
+https://18.233.62.142:5000/
+
+# Demo video of the WebApp
