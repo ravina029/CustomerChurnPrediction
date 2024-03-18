@@ -22,17 +22,25 @@ def training():
 @app.route('/predict',methods=['POST','GET']) # route to show the predictions in a web UI
 def index():
     if request.method == 'POST':
+        
         try:
             #  reading the inputs given by the user
+            
             Age =float(request.form['Age'])
             Balance =float(request.form['Balance'])
+            CreditScore =float(request.form['CreditScore'])
+            Tenure=float(request.form['Tenure'])
+            EstimatedSalary =float(request.form['EstimatedSalary'])
+            Satisfaction_Score =float(request.form['Satisfaction Score'])
             NumOfProducts =float(request.form['NumOfProducts'])
             IsActiveMember =float(request.form['IsActiveMember'])
-            Complain =float(request.form['Complain'])
+            Point_Earned =float(request.form['Point Earned'])
             
          
-            data = [Age, Balance, NumOfProducts, IsActiveMember, Complain]
-            data = np.array(data).reshape(1, 5)
+            data = ['CreditScore', 'Age', 'Tenure', 'Balance', 'NumOfProducts',
+                    'IsActiveMember', 'EstimatedSalary', 'Satisfaction Score',
+                    'Point Earned']
+            data = np.array(data).reshape(1, 9)
             
             obj = PredictionPipeline()
             predict = obj.predict(data)

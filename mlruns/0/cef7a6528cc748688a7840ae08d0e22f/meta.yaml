@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/ravina/Desktop/CustomerChurnPrediction/mlruns/0/cef7a6528cc748688a7840ae08d0e22f/artifacts
+end_time: 1710765290119
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: cef7a6528cc748688a7840ae08d0e22f
+run_name: exultant-foal-875
+run_uuid: cef7a6528cc748688a7840ae08d0e22f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1710765287766
+status: 3
+tags: []
+user_id: ravina
