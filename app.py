@@ -25,21 +25,22 @@ def index():
         
         try:
             #  reading the inputs given by the user
-            
-            Age =float(request.form['Age'])
-            Balance =float(request.form['Balance'])
             CreditScore =float(request.form['CreditScore'])
-            Tenure=float(request.form['Tenure'])
-            EstimatedSalary =float(request.form['EstimatedSalary'])
-            Satisfaction_Score =float(request.form['Satisfaction Score'])
+            Age =float(request.form['Age'])
+            Tenure =float(request.form['Tenure'])
+            Balance =float(request.form['Balance'])
             NumOfProducts =float(request.form['NumOfProducts'])
             IsActiveMember =float(request.form['IsActiveMember'])
+            EstimatedSalary =float(request.form['EstimatedSalary'])
+            Satisfaction_Score =float(request.form['Satisfaction Score'])
             Point_Earned =float(request.form['Point Earned'])
             
+            
+        
          
-            data = ['CreditScore', 'Age', 'Tenure', 'Balance', 'NumOfProducts',
-                    'IsActiveMember', 'EstimatedSalary', 'Satisfaction Score',
-                    'Point Earned']
+            data = [CreditScore, Age, Tenure, Balance, NumOfProducts,
+            IsActiveMember, EstimatedSalary, Satisfaction_Score,
+            Point_Earned]
             data = np.array(data).reshape(1, 9)
             
             obj = PredictionPipeline()

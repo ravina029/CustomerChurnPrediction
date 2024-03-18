@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/ravina/Desktop/CustomerChurnPrediction/mlruns/0/f753fca8270d4fb4abffe0fed19732c5/artifacts
+end_time: 1710769148009
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f753fca8270d4fb4abffe0fed19732c5
+run_name: redolent-wren-957
+run_uuid: f753fca8270d4fb4abffe0fed19732c5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1710769145709
+status: 3
+tags: []
+user_id: ravina
