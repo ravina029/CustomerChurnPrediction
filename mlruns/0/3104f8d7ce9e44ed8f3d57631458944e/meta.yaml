@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/ravina/Desktop/CustomerChurnPrediction/mlruns/0/3104f8d7ce9e44ed8f3d57631458944e/artifacts
+end_time: 1710773231873
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 3104f8d7ce9e44ed8f3d57631458944e
+run_name: glamorous-vole-832
+run_uuid: 3104f8d7ce9e44ed8f3d57631458944e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1710773229681
+status: 3
+tags: []
+user_id: ravina

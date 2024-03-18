@@ -19,7 +19,7 @@ class DataTransformation:
         
         # Separate the target variable 'Exited'
         y = df['Exited']
-        X=df.drop(['RowNumber', 'CustomerId', 'Surname', 'Complain','Geography', 'Gender', 'Card Type','Exited',"HasCrCard"], axis=1)
+        X=df.drop(['RowNumber', 'CustomerId', 'Surname', 'Complain','Geography', 'Gender', 'Card Type','Exited'], axis=1)
 
         # Handle categorical variables using one-hot encoding
         #cat_columns = ['Geography', 'Gender', 'Card Type']

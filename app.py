@@ -30,6 +30,7 @@ def index():
             Tenure =float(request.form['Tenure'])
             Balance =float(request.form['Balance'])
             NumOfProducts =float(request.form['NumOfProducts'])
+            HasCrCard =float(request.form['HasCrCard'])
             IsActiveMember =float(request.form['IsActiveMember'])
             EstimatedSalary =float(request.form['EstimatedSalary'])
             Satisfaction_Score =float(request.form['Satisfaction Score'])
@@ -38,10 +39,10 @@ def index():
             
         
          
-            data = [CreditScore, Age, Tenure, Balance, NumOfProducts,
+            data = [CreditScore, Age, Tenure, Balance, NumOfProducts,HasCrCard,
             IsActiveMember, EstimatedSalary, Satisfaction_Score,
             Point_Earned]
-            data = np.array(data).reshape(1, 9)
+            data = np.array(data).reshape(1, 10)
             
             obj = PredictionPipeline()
             predict = obj.predict(data)

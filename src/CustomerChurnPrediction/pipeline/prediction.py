@@ -13,7 +13,7 @@ class PredictionPipeline:
     def predict(self,data):
         prediction=self.model.predict(data)
         if prediction==1:
-            return "Chance of Customer Churn is High"
+            return "Customer is likely to churn"
         else:
             return "Customer will not churn" 
 
