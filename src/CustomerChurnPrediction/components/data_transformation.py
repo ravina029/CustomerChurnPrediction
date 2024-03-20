@@ -19,11 +19,11 @@ class DataTransformation:
         X=df.drop(['RowNumber', 'CustomerId', 'Surname', 'Complain','Geography', 'Gender', 'Card Type','Exited',], axis=1)
         print("columns of X:",X.columns)
         
-        cat_columns = ['Geography', 'Gender', 'Card Type']
+        #cat_columns = ['Geography', 'Gender', 'Card Type']
         num_columns = ['CreditScore', 'Age', 'Tenure', 'Balance', 'NumOfProducts',"HasCrCard",'IsActiveMember','EstimatedSalary', 'Satisfaction Score', 'Point Earned']
         
         # Handle categorical variables using one-hot encoding
-        df_cat_encoded = pd.get_dummies(df[cat_columns], dtype=int,drop_first=True)
+        #df_cat_encoded = pd.get_dummies(df[cat_columns], dtype=int,drop_first=True)
 
         # Standard scaling on numerical columns
         scaler = StandardScaler()
@@ -31,7 +31,7 @@ class DataTransformation:
         df_scaled = pd.DataFrame(df_scaled, columns=num_columns)
 
         # Concatenate the encoded categorical, scaled numerical and target y.
-        df_transformed = pd.concat([df_scaled,df_cat_encoded, y], axis=1)
+        df_transformed = pd.concat([df_scaled, y], axis=1)
 
         # Split into training and testing sets
         train, test = train_test_split(df_transformed, test_size=0.25, random_state=42)
