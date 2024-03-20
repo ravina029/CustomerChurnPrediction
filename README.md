@@ -2,8 +2,15 @@
 
 Bank customer churn prediction involves leveraging data analysis and machine learning techniques to forecast which customers are likely to terminate their relationship with a bank. By accurately predicting churn, banks can take proactive measures to retain valuable customers, improve customer satisfaction, and optimize their operations.
 
+# Screenshots of the App
 
 ![Application Output](home.png)
+
+![Application Output](inputdataapp.png)
+
+![Application Output](resultimage.png)
+
+
 
 
 
@@ -192,11 +199,7 @@ MLflow
  - Trace all of your expriements
  - Logging & tagging your model
 
- # Screenshots of the App
-![Application Output](inputdataapp.png)
-![Application Output](resultimage.png)
-
-
+ 
 # cloud Deployement url: 
 https://18.233.62.142:5000/
 
