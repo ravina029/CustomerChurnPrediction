@@ -35,14 +35,16 @@ def index():
             EstimatedSalary =float(request.form['EstimatedSalary'])
             Satisfaction_Score =float(request.form['Satisfaction Score'])
             Point_Earned =float(request.form['Point Earned'])
+            Geography = request.form.get('Geography')
+            Gender = request.form.get('Gender')
+            Card_Type =request.form.get('Card Type')
             
             
         
          
-            data = [CreditScore, Age, Tenure, Balance, NumOfProducts,HasCrCard,
-            IsActiveMember, EstimatedSalary, Satisfaction_Score,
-            Point_Earned]
-            data = np.array(data).reshape(1, 10)
+            data = [CreditScore, Age, Tenure, Balance, NumOfProducts,HasCrCard,IsActiveMember, EstimatedSalary, Satisfaction_Score,
+            Point_Earned,Geography,Gender,Card_Type]
+            data = np.array(data).reshape(1, 13)
             
             obj = PredictionPipeline()
             predict = obj.predict(data)

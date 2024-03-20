@@ -17,13 +17,14 @@ from pathlib import Path
 class ModelEvaluation:
     def __init__(self,config:ModelEvaluationConfig):
         self.config=config
+        
 
     def eval_metrics(self,actual,pred):
             accuracy = accuracy_score(actual, pred)
             precision = precision_score(actual, pred)
             recall = recall_score(actual, pred)
-            roc_auc = roc_auc_score(actual, pred)
-            return accuracy,precision,recall,roc_auc
+            #roc_auc = roc_auc_score(actual, pred)
+            return accuracy,precision,recall
         
 
     def log_into_mlflow(self):
@@ -41,10 +42,12 @@ class ModelEvaluation:
 
             with mlflow.start_run():
                 predicted_qualities=model.predict(test_x)
-                (accuracy,precision,recall,roc_auc)=self.eval_metrics(test_y,predicted_qualities)
-
+                y_prob = model.predict_proba(test_x)[:, 1]
+                (accuracy,precision,recall)=self.eval_metrics(test_y,predicted_qualities)
+                roc_auc = roc_auc_score(test_y, y_prob)
                 #saving metrics as local
                 scores = {"accuracy": accuracy, "precision_score": precision, "Recall_score": recall, "Roc_Auc_score": roc_auc}
+                print(scores)
                 save_json(path=Path(self.config.metric_file_name), data=scores)
                 mlflow.log_params(self.config.all_params)
 
