@@ -15,4 +15,5 @@ Flask-Cors
 scikit-learn==1.4.1.post1
 imblearn
 imbalanced-learn
+xgboost==2.0.3
 -e .

@@ -16,7 +16,7 @@ class DataTransformation:
         
         # Separate the target variable 'Exited'
         y = df['Exited']
-        X=df.drop(['RowNumber', 'CustomerId', 'Surname', 'Complain','Geography', 'Gender', 'Card Type','Exited',], axis=1)
+        X=df.drop(['Geography', 'Gender', 'Card Type','Exited'], axis=1)
         print("columns of X:",X.columns)
         
         #cat_columns = ['Geography', 'Gender', 'Card Type']

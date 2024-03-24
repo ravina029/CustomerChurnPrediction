@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/ravina/Desktop/CustomerChurnPrediction/mlruns/0/24904f1f5b3647fd88f748a84f183a09/artifacts
+end_time: 1711300627321
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 24904f1f5b3647fd88f748a84f183a09
+run_name: gifted-loon-592
+run_uuid: 24904f1f5b3647fd88f748a84f183a09
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1711300627249
+status: 4
+tags: []
+user_id: ravina
