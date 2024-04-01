@@ -29,22 +29,25 @@ def index():
             Age =float(request.form['Age'])
             Tenure =float(request.form['Tenure'])
             Balance =float(request.form['Balance'])
-            NumOfProducts =float(request.form['NumOfProducts'])
-            HasCrCard =float(request.form['HasCrCard'])
-            IsActiveMember =float(request.form['IsActiveMember'])
             EstimatedSalary =float(request.form['EstimatedSalary'])
-            Satisfaction_Score =float(request.form['Satisfaction Score'])
-            Point_Earned =float(request.form['Point Earned'])
-            #Geography = request.form.get('Geography')
-            #Gender = request.form.get('Gender')
+            Geography = request.form.get('Geography')
+            Gender = request.form.get('Gender')
+            NumOfProducts =float(request.form['NumOfProducts'])
+            IsActiveMember =float(request.form['IsActiveMember'])
+            sufficient_balance=float(request.form['sufficient_balance'])
+            is_CreditScore_low=float(request.form['is_CreditScore_low'])
+            
+            #Point_Earned =float(request.form['Point Earned'])
+            
+            #Satisfaction_Score =float(request.form['Satisfaction Score'])
             #Card_Type =request.form.get('Card Type')
             
             
         
          
-            data = [CreditScore, Age, Tenure, Balance, NumOfProducts,HasCrCard,IsActiveMember, EstimatedSalary, Satisfaction_Score,
-            Point_Earned]
-            data = np.array(data).reshape(1, 10)
+            data = [CreditScore, Age, Tenure, Balance, EstimatedSalary,Geography,Gender,
+                    NumOfProducts,IsActiveMember,sufficient_balance,is_CreditScore_low ]
+            data = np.array(data).reshape(1, 11)
             
             obj = PredictionPipeline()
             predict = obj.predict(data)
