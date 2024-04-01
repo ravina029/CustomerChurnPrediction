@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/ravina/Desktop/CustomerChurnPrediction/mlruns/0/186d68b7fec94fc39cd3c809c5246440/artifacts
+end_time: 1711959723819
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 186d68b7fec94fc39cd3c809c5246440
+run_name: silent-cod-470
+run_uuid: 186d68b7fec94fc39cd3c809c5246440
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1711959721516
+status: 3
+tags: []
+user_id: ravina
