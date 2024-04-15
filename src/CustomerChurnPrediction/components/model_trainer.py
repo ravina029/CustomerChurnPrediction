@@ -21,7 +21,7 @@ class ModelTrainer:
         test_x=test_data.drop([self.config.target_column],axis=1)
         train_y=train_data[[self.config.target_column]]
         test_y=test_data[[self.config.target_column]]
-
+        print("shape of train_x is:",train_x)
 
         train_x, train_y = check_X_y(train_x, train_y.values.ravel(), multi_output=True)
         test_x, test_y = check_X_y(test_x, test_y.values.ravel(), multi_output=True)
@@ -32,10 +32,7 @@ class ModelTrainer:
             raise ValueError(f"Unsupported target variable type: {target_type}. Model supports binary or multiclass classification.")
 
 
-        rfc=RandomForestClassifier(n_estimators=self.config.n_estimators,min_samples_split = 2,max_depth= 11, criterion = 'gini',  random_state=self.config.random_state)
-        
+        #lr=ElasticNet(alpha=self.config.alpha,l1_ratio=self.config.l1_ratio,random_state=32)
+        rfc=RandomForestClassifier(n_estimators=self.config.n_estimators,min_samples_split = self.config.min_samples_split,max_depth= self.config.max_depth, criterion = self.config.criterion,  random_state=self.config.random_state)
         rfc.fit(train_x,train_y)
-
-
         joblib.dump(rfc,os.path.join(self.config.root_dir,self.config.model_name))
-

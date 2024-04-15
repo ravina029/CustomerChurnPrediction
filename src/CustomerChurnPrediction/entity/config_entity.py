@@ -30,6 +30,9 @@ class ModelTrainerConfig:
     test_data_path: Path
     model_name: str
     n_estimators: int
+    min_samples_split: int
+    max_depth: int
+    criterion: str
     random_state: int
     target_column: str
 
