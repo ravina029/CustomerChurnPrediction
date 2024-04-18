@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/ravina/Desktop/CustomerChurnPrediction/mlruns/0/597825c80d054ce7906d483d059d458e/artifacts
+end_time: 1713441873105
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 597825c80d054ce7906d483d059d458e
+run_name: respected-turtle-332
+run_uuid: 597825c80d054ce7906d483d059d458e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1713441871291
+status: 3
+tags: []
+user_id: ravina

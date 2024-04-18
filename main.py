@@ -43,7 +43,7 @@ except Exception as e:
 
 
 
-STAGE_NAME='Data Transformation stage'
+STAGE_NAME='Model Trainer stage'
 try:
         logger.info(f">>>>>>> stage{STAGE_NAME} started <<<<<<<<")
         obj=ModelTrainerTrainingPipeline()
