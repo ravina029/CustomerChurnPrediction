@@ -20,7 +20,7 @@ Bank customer churn prediction involves leveraging data analysis and machine lea
 - **Data Collection**: Gathering data about bank customers, including demographic information, account balances, credit card usage, customer service interactions etc. This model is trained on transformed dataset downloaded from kaggle. dataset link:https://github.com/ravina029/datasets/raw/main/feature_engineered_bankchurn_data.csv.zip
 - **Feature Engineering**: Extracting relevant features from the collected data, such as customer age, transaction activity, average balance, No of products, activity and complain.
 - **Model Training**: Developing classification model using machine learning algorithms such as random forest classifier to predict the likelihood of churn based on the extracted features.
-- **Evaluation**: Assessing the performance of the churn prediction models using metrics like accuracy, precision, recall, and area under the ROC curve (AUC). Achieved accuracy over 82.1% and ROC AUC score=77% on test data. Still there are scope of improvements.
+- **Evaluation**: Assessing the performance of the churn prediction models using metrics like accuracy, precision, recall, and area under the ROC curve (AUC). Achieved accuracy over 86.1%, precision_score=85.9, Recall_score:86 ROC AUC score=86.1% on test data. Still there are scope of improvements.
 - **Deployment**: Deploying the model on cloud.
 
 ## Benefits

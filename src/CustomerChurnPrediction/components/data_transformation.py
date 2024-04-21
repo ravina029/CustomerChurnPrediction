@@ -34,22 +34,23 @@ class DataTransformation:
         
         X[numr] = numerical_transformer.fit_transform(X[numr])   # Apply StandardScaler to numerical columns
         transformed_df = pd.concat([X[numr], X[catg]], axis=1)   # Concatenate numerical and encoded categorical columns
-        df_transformed = pd.concat([transformed_df, y], axis=1)   # Concatenate the encoded categorical, scaled numerical and target y.
         
-        train, test = train_test_split(df_transformed, test_size=0.25, random_state=42)   # Split into training and testing sets
+        
         smote = SMOTE(sampling_strategy='minority')    # Apply SMOTE to training set
-        X_train, y_train= smote.fit_resample(train.drop(columns=['Exited']), train['Exited'])
+        X_balanced, y_balanced= smote.fit_resample(transformed_df, y)
+
+        df_transformed = pd.concat([X_balanced, y_balanced], axis=1)   # Concatenate the encoded categorical, scaled numerical and target y.
+        train_df, test_df = train_test_split(df_transformed, test_size=0.20, random_state=2)   # Split into training and testing sets
         
-        train_resampled = pd.concat([pd.DataFrame(X_train, columns=train.drop(columns=['Exited']).columns), pd.DataFrame(y_train, columns=['Exited'])], axis=1)
+        
+        #train_resampled = pd.concat([pd.DataFrame(X_train, columns=train.drop(columns=['Exited']).columns), pd.DataFrame(y_train, columns=['Exited'])], axis=1)
         
         # Save train and test sets to CSV
-        train_resampled.to_csv(os.path.join(self.config.root_dir, 'train.csv'), index=False)
-        test.to_csv(os.path.join(self.config.root_dir, 'test.csv'), index=False)
+        train_df.to_csv(os.path.join(self.config.root_dir, 'train.csv'), index=False)
+        test_df.to_csv(os.path.join(self.config.root_dir, 'test.csv'), index=False)
 
         logger.info("Data has been split into training and test sets.")
-        logger.info(f"Training set shape: {train_resampled.shape}")
-        logger.info(f"Test set shape: {test.shape}")
+        logger.info(f"Training set shape: {train_df.shape}")
+        logger.info(f"Test set shape: {test_df.shape}")
         print("columns of X:",X.columns)
         print("columns of df_transformed:",df_transformed.columns)
-        print("Shape of X_train and y_train after appliing smote", X_train.shape,y_train.shape)
-        print("columns of train_resample:",train_resampled.columns)
