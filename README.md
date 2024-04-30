@@ -20,8 +20,15 @@ Bank customer churn prediction involves leveraging data analysis and machine lea
 - **Data Collection**: Gathering data about bank customers, including demographic information, account balances, credit card usage, customer service interactions etc. This model is trained on transformed dataset downloaded from kaggle. dataset link:https://github.com/ravina029/datasets/raw/main/feature_engineered_bankchurn_data.csv.zip
 - **Feature Engineering**: Extracting relevant features from the collected data, such as customer age, transaction activity, average balance, No of products, activity and complain.
 - **Model Training**: Developing classification model using machine learning algorithms such as random forest classifier to predict the likelihood of churn based on the extracted features.
-- **Evaluation**: Assessing the performance of the churn prediction models using metrics like accuracy, precision, recall, and area under the ROC curve (AUC). Achieved accuracy over 86.1%, precision_score=85.9, Recall_score:86 ROC AUC score=86.1% on test data. Still there are scope of improvements.
+- **Evaluation**: Assessed the performance of the churn prediction models using metrics like accuracy, precision, recall, and area under the ROC curve (AUC). We attained an accuracy of 82.5% on the test data, with a precision score of 55.9% and a recall score of 70.3%. The ROC AUC score stands at 78%. However, there is room for enhancement, particularly in improving the precision score. 
+1. Our model's recall score of 70.3% means that the model correctly identified approximately 70.3% of all customers who actually churned. There is need to improve this score to retain the customers who are going to churn. 
+2. Our precision score indicates that only 55% of positively predicted outcomes are accurate. This level of precision may result in misallocation of resources and benefits to customers who are mistakenly predicted to potentially churn, highlighting the need for improvement in our predictive model. 
+3. And ROC AUC score of 78% suggests that the model has good discriminatory power in predicting customer churn.
+4. F1 score of approximately 0.62  suggests that the model achieves a reasonably good trade-off between correctly identifying positive instances (precision) and capturing all positive instances (recall).
+
+
 - **Deployment**: Deploying the model on cloud.
+
 
 ## Benefits
 

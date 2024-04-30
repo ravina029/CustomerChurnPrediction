@@ -7,6 +7,9 @@ from sklearn.preprocessing import LabelEncoder,StandardScaler
 import imblearn
 from imblearn.over_sampling import SMOTE
 #from imblearn.over_sampling import RandomOverSampler
+from imblearn.combine import SMOTEENN
+from imblearn.under_sampling import EditedNearestNeighbours
+
 
 class DataTransformation:
     def __init__(self, config: DataTransformationConfig):
@@ -35,16 +38,16 @@ class DataTransformation:
         X[numr] = numerical_transformer.fit_transform(X[numr])   # Apply StandardScaler to numerical columns
         transformed_df = pd.concat([X[numr], X[catg]], axis=1)   # Concatenate numerical and encoded categorical columns
         
+        # Split into training and testing sets
+        X_train, X_test, y_train, y_test = train_test_split(transformed_df, y, test_size=0.3, stratify=y,random_state=42)
+        
         
         smote = SMOTE(sampling_strategy='minority')    # Apply SMOTE to training set
-        X_balanced, y_balanced= smote.fit_resample(transformed_df, y)
+        X_train_balanced, y_train_balanced = smote.fit_resample(X_train, y_train)
 
-        df_transformed = pd.concat([X_balanced, y_balanced], axis=1)   # Concatenate the encoded categorical, scaled numerical and target y.
-        train_df, test_df = train_test_split(df_transformed, test_size=0.20, random_state=2)   # Split into training and testing sets
-        
-        
-        #train_resampled = pd.concat([pd.DataFrame(X_train, columns=train.drop(columns=['Exited']).columns), pd.DataFrame(y_train, columns=['Exited'])], axis=1)
-        
+        train_df = pd.concat([X_train_balanced, y_train_balanced], axis=1)   # Concatenate the encoded categorical, scaled numerical and target y.
+        test_df = pd.concat([X_test, y_test], axis=1)   # Concatenate the test set with target y.
+
         # Save train and test sets to CSV
         train_df.to_csv(os.path.join(self.config.root_dir, 'train.csv'), index=False)
         test_df.to_csv(os.path.join(self.config.root_dir, 'test.csv'), index=False)
@@ -52,5 +55,3 @@ class DataTransformation:
         logger.info("Data has been split into training and test sets.")
         logger.info(f"Training set shape: {train_df.shape}")
         logger.info(f"Test set shape: {test_df.shape}")
-        print("columns of X:",X.columns)
-        print("columns of df_transformed:",df_transformed.columns)
