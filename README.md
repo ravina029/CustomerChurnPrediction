@@ -38,6 +38,8 @@ Ultimately preventing customer churn and improving the bank's customer retention
 
 
 
+# Workflow of the project
+![Application Output](workflow.png)
 
 
 # Key Components
@@ -78,7 +80,7 @@ Code file :"/Users/ravina/Desktop/CustomerChurnPrediction/research/Rough_model_B
 
 3. **Model Training**: Use several machine learning classification algorithms such as random Logistic Regression, Decision Tree, Ada Boost,Xgboost  and forest classifier to predict the likelihood of churn based on the extracted features.
 
-4. **Feature Selection**: Random forest Classifier is used to find the important features in precting the most important features in predicting the output.
+4. **Feature Selection**: "Chi-square test" and Random forest Classifier is used to find the important features in precting the most important features in predicting the output.
 
 5. **Evaluation**: Assessed the performance of these models using metrics like accuracy, precision, recall, and area under the ROC curve (AUC). RandomForestClassifier and xgboostClassifier performed the best. 
 
