@@ -9,13 +9,16 @@ Bank customer churn prediction involves using data analysis and machine learning
 ## Benefits
 
 -**Customer Retention**: Identifying customers at risk of churn enables banks to implement personalized retention strategies, such as offering tailored financial products, rewards, or incentives.
+
 -**Risk Management**: Proactively managing customer churn helps mitigate revenue loss and minimize the impact on the bank's profitability.
+
 -**Enhanced Customer Experience**: Anticipating and addressing customer needs and concerns before they churn can lead to improved satisfaction and loyalty.
 
 
 ## Project Aim
 
 -**Predictive Modeling**: Building a model to predict which bank customers are likely to close their accounts or switch to another bank.
+
 -**Pattern Discovery**: Identifying the most important factors influencing churn behavior.
 
 Ultimately preventing customer churn and improving the bank's customer retention strategies.
@@ -46,9 +49,9 @@ Ultimately preventing customer churn and improving the bank's customer retention
 Raw Data was gethered from kaggle, following are the features in the original dataset: RowNumber, CustomerId, Surname, CreditScore	Geography, Gender,Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary, Exited, Complain, Satisfaction Score, Card Type, Point Earned. 
 Extensive feature transformation and feature selection was performed on the original dataset "Customer-Churn-Records.csv". 
 
--**final data**: used to build the model is :https://github.com/ravina029/datasets/raw/main/feature_engineered_bankchurn_data.csv.zip. 
+-**final data**: https://github.com/ravina029/datasets/raw/main/feature_engineered_bankchurn_data.csv.zip. 
 
-this dataset contains detailed information about the customer including. 
+This dataset contains detailed information about the customer: 
 1. **Geography**: country of the customer 'France', 'Spain', or 'Germany'.
 2. **Gender**: Male or Female 
 3. **NumOfProducts**: Number of the product or services used by customer 1,2 or 3.
@@ -82,10 +85,10 @@ Code file :"/Users/ravina/Desktop/CustomerChurnPrediction/research/Rough_model_B
 
 7. **Model Selection**: With careful observation of all the performance metrices of both the xgboost and randomforest classifier, randomforest is selected as the final model for prediction tasks due.
 With RandomforestClassifier we attained an accuracy of 82.5% on the test data, with a precision score of 55.9% and a recall score of 70.3%. The ROC AUC score stands at 78%. However, there is room for enhancement, particularly in improving the precision score. 
-1. Our model's recall score of 70.3% means that the model correctly identified approximately 70.3% of all customers who actually churned. There is need to improve this score to retain the customers who are going to churn. 
-2. Our precision score indicates that only 55% of positively predicted outcomes are accurate. This level of precision may result in misallocation of resources and benefits to customers who are mistakenly predicted to potentially churn, highlighting the need for improvement in our predictive model. 
-3. And ROC AUC score of 78% suggests that the model has good discriminatory power in predicting customer churn.
-4. F1 score of approximately 0.62  suggests that the model achieves a reasonably good trade-off between correctly identifying positive instances (precision) and capturing all positive instances (recall).
+- Our model's recall score of 70.3% means that the model correctly identified approximately 70.3% of all customers who actually churned. There is need to improve this score to retain the customers who are going to churn. 
+-  Our precision score indicates that only 55% of positively predicted outcomes are accurate. This level of precision may result in misallocation of resources and benefits to customers who are mistakenly predicted to potentially churn, highlighting the need for improvement in our predictive model. 
+- And ROC AUC score of 78% suggests that the model has good discriminatory power in predicting customer churn.
+- F1 score of approximately 0.62  suggests that the model achieves a reasonably good trade-off between correctly identifying positive instances (precision) and capturing all positive instances (recall).
 
 -**Model Deployement** Created Flask Web App for easy user experince then deployed it on cloud using Aws EC2 instance.
 
