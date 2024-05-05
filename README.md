@@ -1,6 +1,28 @@
-# Bank Customer Churn Prediction Project
+# Stop Customers from Walking Away: Predicting Bank Customer Churn 
 
-Bank customer churn prediction involves leveraging data analysis and machine learning techniques to forecast which customers are likely to terminate their relationship with a bank. By accurately predicting churn, banks can take proactive measures to retain valuable customers, improve customer satisfaction, and optimize their operations.
+
+
+# Project Overview: 
+
+Bank customer churn prediction involves using data analysis and machine learning to forecast which customers may leave a bank. Understanding customer churn is crucial for businesses. Analyzing data helps identify patterns and indicators linked to customer attrition, allowing companies to develop targeted strategies to retain customers and predict churn. Predicting churn offers several benefits, including proactive customer management, improved satisfaction, and optimized operations. Accurate churn prediction enables banks to reduce churn rates, streamline operations, and achieve better financial performance.
+
+## Benefits
+
+- **Customer Retention**: Identifying customers at risk of churn enables banks to implement personalized retention strategies, such as offering tailored financial products, rewards, or incentives.
+- **Risk Management**: Proactively managing customer churn helps mitigate revenue loss and minimize the impact on the bank's profitability.
+- **Enhanced Customer Experience**: Anticipating and addressing customer needs and concerns before they churn can lead to improved satisfaction and loyalty.
+
+
+## Project Aim: 
+**Predictive Modeling:** Building a model to predict which bank customers are likely to close their accounts or switch to another bank.
+**Pattern Discovery:** Identifying the most important factors influencing churn behavior.
+
+Ultimately preventing customer churn and improving the bank's customer retention strategies.
+
+## Example Use Cases
+- Forecasting customer attrition for specific banking products, such as credit cards, loans, or investment accounts.
+- Identifying high-value customers who are at risk of churn and prioritizing retention efforts accordingly.
+
 
 # Screenshots of the App
 (These are of the model trained on data without the info of Gender and Geography. Soon will update with new data including information of Gender and Geography.)
@@ -15,35 +37,56 @@ Bank customer churn prediction involves leveraging data analysis and machine lea
 
 
 
-## Key Components
+# Key Components
 
-- **Data Collection**: Gathering data about bank customers, including demographic information, account balances, credit card usage, customer service interactions etc. This model is trained on transformed dataset downloaded from kaggle. dataset link:https://github.com/ravina029/datasets/raw/main/feature_engineered_bankchurn_data.csv.zip
-- **Feature Engineering**: Extracting relevant features from the collected data, such as customer age, transaction activity, average balance, No of products, activity and complain.
-- **Model Training**: Developing classification model using machine learning algorithms such as random forest classifier to predict the likelihood of churn based on the extracted features.
-- **Evaluation**: Assessed the performance of the churn prediction models using metrics like accuracy, precision, recall, and area under the ROC curve (AUC). We attained an accuracy of 82.5% on the test data, with a precision score of 55.9% and a recall score of 70.3%. The ROC AUC score stands at 78%. However, there is room for enhancement, particularly in improving the precision score. 
+## Data Ingestion, transformation and Selection: 
+
+**Original data set** Attached in the same repository: Customer-Churn-Records.csv
+Raw Data was gethered from kaggle, following are the features in the original dataset: RowNumber, CustomerId, Surname, CreditScore	Geography, Gender,Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary, Exited, Complain, Satisfaction Score, Card Type, Point Earned. 
+
+Extensive feature transformation and feature selection was performed on the original dataset "Customer-Churn-Records.csv". 
+**final data** used to build the model is :https://github.com/ravina029/datasets/raw/main/feature_engineered_bankchurn_data.csv.zip. 
+this dataset contains detailed information about the customer including. 
+**Geography:** country of the customer 'France', 'Spain', or 'Germany'.
+**Gender:** Male or Female 
+**NumOfProducts:** Number of the product or services used by customer 1,2 or 3.
+**IsActiveMember:** Whether the customer is active or not.
+**sufficient_balance:** Does the customer hace sufficient balance, "yes" or "No".
+**is_CreditScore_low** it is Engineered feature have two values  "yes" or "No". 
+**CreditScore:** Credit Score of the customer. 
+**Age:** Age of the customer.
+**Tenure:** time the customer has been associated with the bank.
+**Balance:** Balance amount in the account of the customer.  
+**EstimatedSalary** Salary of the customer.
+**Exited** This column have two unique values 1 and 0, where 1 indicated customer churned and 0 not churned. A churned customer is one who has decided to discontinue their subscription or usage of the company's services. On the other hand, a non-churned customer is one who continues to remain engaged and retains their relationship with the company.
+
+## Exploratory Data Analysis:
+Univariate and bivariate Analysis was performed the on original dataset "Customer-Churn-Records.csv" documented in the file /Users/ravina/Desktop/CustomerChurnPrediction/research/EDA.ipynb. 
+Interactive plots and graphs are used to drive the important patterns and conlcusion from the dataset. Insights from EDA hepled in the informed feature selection and feature elimination. Depending on the corelation matrix score "Complain" feature was drpped due to high correlation(100%) with the target value. Other features are selected using the Randomforestclassifier's feature importance score. 
+
+## Steps in Feature and Model Selection
+Code file :"/Users/ravina/Desktop/CustomerChurnPrediction/research/Rough_model_Building.ipynb"
+- **Feature Engineering**: Extracting relevant features from the collected data, such as customer age, transaction activity, average balance, No of products, activity and complain. Two features "sufficient_balance" and "is_CreditScore_low" are engineered from the avalible data. which helped in outcome prediction.
+
+-**Data oversampling:** The target column "Exited" is highly imbalanced. Data oversampling technique 'SMOTE' is used to make the dataset balanced.
+
+- **Model Training**: Use several machine learning classification algorithms such as random Logistic Regression, Decision Tree, Ada Boost,Xgboost  and forest classifier to predict the likelihood of churn based on the extracted features.
+
+-**Feature Selection:** Random forest Classifier is used to find the important features in precting the most important features in predicting the output.
+- **Evaluation**: Assessed the performance of these models using metrics like accuracy, precision, recall, and area under the ROC curve (AUC). RandomForestClassifier and xgboostClassifier performed the best. 
+
+- **Hyper Parameter Tuning:** Hyper Parameter tuning was performed using RandomizedSerchCv for Xgboost and GridSearchCv for Randomforest classifier. With Tuned hyperparameters Randomforest  captures more True positive rate over Xgboost. 
+
+-**Model Selection:** With careful observation of all the performance metrices of both the xgboost and randomforest classifier, randomforest is selected as the final model for prediction tasks due.
+With RandomforestClassifier we attained an accuracy of 82.5% on the test data, with a precision score of 55.9% and a recall score of 70.3%. The ROC AUC score stands at 78%. However, there is room for enhancement, particularly in improving the precision score. 
 1. Our model's recall score of 70.3% means that the model correctly identified approximately 70.3% of all customers who actually churned. There is need to improve this score to retain the customers who are going to churn. 
 2. Our precision score indicates that only 55% of positively predicted outcomes are accurate. This level of precision may result in misallocation of resources and benefits to customers who are mistakenly predicted to potentially churn, highlighting the need for improvement in our predictive model. 
 3. And ROC AUC score of 78% suggests that the model has good discriminatory power in predicting customer churn.
 4. F1 score of approximately 0.62  suggests that the model achieves a reasonably good trade-off between correctly identifying positive instances (precision) and capturing all positive instances (recall).
 
+-**Model Deployement** Created Flask Web App for easy user experince then deployed it on cloud using Aws EC2 instance.
 
-- **Deployment**: Deploying the model on cloud.
-
-
-## Benefits
-
-- **Customer Retention**: Identifying customers at risk of churn enables banks to implement personalized retention strategies, such as offering tailored financial products, rewards, or incentives.
-- **Risk Management**: Proactively managing customer churn helps mitigate revenue loss and minimize the impact on the bank's profitability.
-- **Enhanced Customer Experience**: Anticipating and addressing customer needs and concerns before they churn can lead to improved satisfaction and loyalty.
-
-## Example Use Cases
-
-- Predicting which bank customers are likely to close their accounts or switch to another bank.
-- Forecasting customer attrition for specific banking products, such as credit cards, loans, or investment accounts.
-- Identifying high-value customers who are at risk of churn and prioritizing retention efforts accordingly.
-
-
-
+# Detailed End to End Implementation of the Project.
 
 ## Workflows
 1. Update config.yaml
@@ -57,7 +100,7 @@ Bank customer churn prediction involves leveraging data analysis and machine lea
 9. Update the app.py
 
 
-# How to run?
+## How to run?
 ### STEPS:
 
 Clone the repository
