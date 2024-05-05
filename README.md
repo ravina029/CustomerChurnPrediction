@@ -28,8 +28,7 @@ Ultimately preventing customer churn and improving the bank's customer retention
 - Identifying high-value customers who are at risk of churn and prioritizing retention efforts accordingly.
 
 
-# Screenshots of the App
-(These are of the model trained on data without the info of Gender and Geography. Soon will update with new data including information of Gender and Geography.)
+# Screenshots of the Flask Webb App
 
 ![Application Output](home.png)
 
@@ -72,6 +71,7 @@ Interactive plots and graphs are used to drive the important patterns and conlcu
 
 ## Steps in Feature and Model Selection
 Code file :"/Users/ravina/Desktop/CustomerChurnPrediction/research/Rough_model_Building.ipynb"
+
 1. **Feature Engineering**: Extracting relevant features from the collected data, such as customer age, transaction activity, average balance, No of products, activity and complain. Two features "sufficient_balance" and "is_CreditScore_low" are engineered from the avalible data. which helped in outcome prediction.
 
 2. **Data oversampling**: The target column "Exited" is highly imbalanced. Data oversampling technique 'SMOTE' is used to make the dataset balanced.
@@ -79,6 +79,7 @@ Code file :"/Users/ravina/Desktop/CustomerChurnPrediction/research/Rough_model_B
 3. **Model Training**: Use several machine learning classification algorithms such as random Logistic Regression, Decision Tree, Ada Boost,Xgboost  and forest classifier to predict the likelihood of churn based on the extracted features.
 
 4. **Feature Selection**: Random forest Classifier is used to find the important features in precting the most important features in predicting the output.
+
 5. **Evaluation**: Assessed the performance of these models using metrics like accuracy, precision, recall, and area under the ROC curve (AUC). RandomForestClassifier and xgboostClassifier performed the best. 
 
 6. **Hyper Parameter Tuning**: Hyper Parameter tuning was performed using RandomizedSerchCv for Xgboost and GridSearchCv for Randomforest classifier. With Tuned hyperparameters Randomforest  captures more True positive rate over Xgboost. 
@@ -89,8 +90,12 @@ With RandomforestClassifier we attained an accuracy of 82.5% on the test data, w
 -  Our precision score indicates that only 55% of positively predicted outcomes are accurate. This level of precision may result in misallocation of resources and benefits to customers who are mistakenly predicted to potentially churn, highlighting the need for improvement in our predictive model. 
 - And ROC AUC score of 78% suggests that the model has good discriminatory power in predicting customer churn.
 - F1 score of approximately 0.62  suggests that the model achieves a reasonably good trade-off between correctly identifying positive instances (precision) and capturing all positive instances (recall).
+ 8. **Model Version Control**: Utalized MLflow for model version control and convinient model optimization in end to end pipeline.
 
--**Model Deployement** Created Flask Web App for easy user experince then deployed it on cloud using Aws EC2 instance.
+ 9. **Web APP**: Created Flask Web App for easy user experince.
+
+ 10. **Model Deployement**: Utalized CI/CD pipelines, Docker containers and AWS EC2 instance for seamless model integration and deployement.
+
 
 # Detailed End to End Implementation of the Project.
 
