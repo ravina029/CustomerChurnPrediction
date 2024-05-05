@@ -1,4 +1,11 @@
 # Stop Customers from Walking Away: Predicting Bank Customer Churn 
+# Webb App
+
+![Application Output](home.png)
+
+![Application Output](inputdataapp.png)
+
+![Application Output](resultimage.png)
 
 
 
@@ -26,16 +33,6 @@ Ultimately preventing customer churn and improving the bank's customer retention
 ## Example Use Cases
 - Forecasting customer attrition for specific banking products, such as credit cards, loans, or investment accounts.
 - Identifying high-value customers who are at risk of churn and prioritizing retention efforts accordingly.
-
-
-# Screenshots of the Flask Webb App
-
-![Application Output](home.png)
-
-![Application Output](inputdataapp.png)
-
-![Application Output](resultimage.png)
-
 
 
 # Workflow of the project
