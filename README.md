@@ -41,10 +41,12 @@ Ultimately preventing customer churn and improving the bank's customer retention
 
 # Key Components
 
-## Data Ingestion, transformation and Selection 
+## 1. Data Ingestion, transformation and Selection 
 
 -**Original data set**: Attached in the same repository: Customer-Churn-Records.csv
-Raw Data was gethered from kaggle, following are the features in the original dataset: RowNumber, CustomerId, Surname, CreditScore	Geography, Gender,Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary, Exited, Complain, Satisfaction Score, Card Type, Point Earned. 
+Raw Data was gethered from kaggle, following are the features in the original dataset: 
+{RowNumber, CustomerId, Surname, CreditScore	Geography, Gender,Age, Tenure, Balance, NumOfProducts, HasCrCard, IsActiveMember, EstimatedSalary, Exited, Complain, Satisfaction Score, Card Type, Point Earned.} 
+
 Extensive feature transformation and feature selection was performed on the original dataset "Customer-Churn-Records.csv". 
 
 -**final data**: https://github.com/ravina029/datasets/raw/main/feature_engineered_bankchurn_data.csv.zip. 
@@ -63,12 +65,12 @@ This dataset contains detailed information about the customer:
 11. **EstimatedSalary**: Salary of the customer.
 12. **Exited**: This column have two unique values 1 and 0, where 1 indicated customer churned and 0 not churned. A churned customer is one who has decided to discontinue their subscription or usage of the company's services. On the other hand, a non-churned customer is one who continues to remain engaged and retains their relationship with the company.
 
-## Exploratory Data Analysis
+## 2. Exploratory Data Analysis
 Univariate and bivariate Analysis was performed the on original dataset "Customer-Churn-Records.csv" documented in the file /Users/ravina/Desktop/CustomerChurnPrediction/research/EDA.ipynb. 
 
 Interactive plots and graphs are used to drive the important patterns and conlcusion from the dataset. Insights from EDA hepled in the informed feature selection and feature elimination. Depending on the corelation matrix score "Complain" feature was drpped due to high correlation(100%) with the target value. Other features are selected using the Randomforestclassifier's feature importance score. 
 
-## Steps in Feature and Model Selection
+## 3. Steps in Feature and Model Selection
 Code file :"/Users/ravina/Desktop/CustomerChurnPrediction/research/Rough_model_Building.ipynb"
 
 1. **Feature Engineering**: Extracting relevant features from the collected data, such as customer age, transaction activity, average balance, No of products, activity and complain. Two features "sufficient_balance" and "is_CreditScore_low" are engineered from the avalible data. which helped in outcome prediction.
