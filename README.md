@@ -47,38 +47,40 @@ Raw Data was gethered from kaggle, following are the features in the original da
 Extensive feature transformation and feature selection was performed on the original dataset "Customer-Churn-Records.csv". 
 
 -**final data**: used to build the model is :https://github.com/ravina029/datasets/raw/main/feature_engineered_bankchurn_data.csv.zip. 
+
 this dataset contains detailed information about the customer including. 
--**Geography**: country of the customer 'France', 'Spain', or 'Germany'.
--**Gender**: Male or Female 
--**NumOfProducts**: Number of the product or services used by customer 1,2 or 3.
--**IsActiveMember**: Whether the customer is active or not.
--**sufficient_balance**: Does the customer hace sufficient balance, "yes" or "No".
--**is_CreditScore_low**: it is Engineered feature have two values  "yes" or "No". 
--**CreditScore**: Credit Score of the customer. 
--**Age**: Age of the customer.
--**Tenure**: time the customer has been associated with the bank.
--**Balance**: Balance amount in the account of the customer.  
--**EstimatedSalary**: Salary of the customer.
--**Exited**: This column have two unique values 1 and 0, where 1 indicated customer churned and 0 not churned. A churned customer is one who has decided to discontinue their subscription or usage of the company's services. On the other hand, a non-churned customer is one who continues to remain engaged and retains their relationship with the company.
+1. **Geography**: country of the customer 'France', 'Spain', or 'Germany'.
+2. **Gender**: Male or Female 
+3. **NumOfProducts**: Number of the product or services used by customer 1,2 or 3.
+4. **IsActiveMember**: Whether the customer is active or not.
+5. **sufficient_balance**: Does the customer hace sufficient balance, "yes" or "No".
+6. **is_CreditScore_low**: it is Engineered feature have two values  "yes" or "No". 
+7. **CreditScore**: Credit Score of the customer. 
+8. **Age**: Age of the customer.
+9. **Tenure**: time the customer has been associated with the bank.
+10. **Balance**: Balance amount in the account of the customer.  
+11. **EstimatedSalary**: Salary of the customer.
+12. **Exited**: This column have two unique values 1 and 0, where 1 indicated customer churned and 0 not churned. A churned customer is one who has decided to discontinue their subscription or usage of the company's services. On the other hand, a non-churned customer is one who continues to remain engaged and retains their relationship with the company.
 
 ## Exploratory Data Analysis
 Univariate and bivariate Analysis was performed the on original dataset "Customer-Churn-Records.csv" documented in the file /Users/ravina/Desktop/CustomerChurnPrediction/research/EDA.ipynb. 
+
 Interactive plots and graphs are used to drive the important patterns and conlcusion from the dataset. Insights from EDA hepled in the informed feature selection and feature elimination. Depending on the corelation matrix score "Complain" feature was drpped due to high correlation(100%) with the target value. Other features are selected using the Randomforestclassifier's feature importance score. 
 
 ## Steps in Feature and Model Selection
 Code file :"/Users/ravina/Desktop/CustomerChurnPrediction/research/Rough_model_Building.ipynb"
--**Feature Engineering**: Extracting relevant features from the collected data, such as customer age, transaction activity, average balance, No of products, activity and complain. Two features "sufficient_balance" and "is_CreditScore_low" are engineered from the avalible data. which helped in outcome prediction.
+1. **Feature Engineering**: Extracting relevant features from the collected data, such as customer age, transaction activity, average balance, No of products, activity and complain. Two features "sufficient_balance" and "is_CreditScore_low" are engineered from the avalible data. which helped in outcome prediction.
 
--**Data oversampling**: The target column "Exited" is highly imbalanced. Data oversampling technique 'SMOTE' is used to make the dataset balanced.
+2. **Data oversampling**: The target column "Exited" is highly imbalanced. Data oversampling technique 'SMOTE' is used to make the dataset balanced.
 
--**Model Training**: Use several machine learning classification algorithms such as random Logistic Regression, Decision Tree, Ada Boost,Xgboost  and forest classifier to predict the likelihood of churn based on the extracted features.
+3. **Model Training**: Use several machine learning classification algorithms such as random Logistic Regression, Decision Tree, Ada Boost,Xgboost  and forest classifier to predict the likelihood of churn based on the extracted features.
 
--**Feature Selection**: Random forest Classifier is used to find the important features in precting the most important features in predicting the output.
--**Evaluation**: Assessed the performance of these models using metrics like accuracy, precision, recall, and area under the ROC curve (AUC). RandomForestClassifier and xgboostClassifier performed the best. 
+4. **Feature Selection**: Random forest Classifier is used to find the important features in precting the most important features in predicting the output.
+5. **Evaluation**: Assessed the performance of these models using metrics like accuracy, precision, recall, and area under the ROC curve (AUC). RandomForestClassifier and xgboostClassifier performed the best. 
 
--**Hyper Parameter Tuning**: Hyper Parameter tuning was performed using RandomizedSerchCv for Xgboost and GridSearchCv for Randomforest classifier. With Tuned hyperparameters Randomforest  captures more True positive rate over Xgboost. 
+6. **Hyper Parameter Tuning**: Hyper Parameter tuning was performed using RandomizedSerchCv for Xgboost and GridSearchCv for Randomforest classifier. With Tuned hyperparameters Randomforest  captures more True positive rate over Xgboost. 
 
--**Model Selection**: With careful observation of all the performance metrices of both the xgboost and randomforest classifier, randomforest is selected as the final model for prediction tasks due.
+7. **Model Selection**: With careful observation of all the performance metrices of both the xgboost and randomforest classifier, randomforest is selected as the final model for prediction tasks due.
 With RandomforestClassifier we attained an accuracy of 82.5% on the test data, with a precision score of 55.9% and a recall score of 70.3%. The ROC AUC score stands at 78%. However, there is room for enhancement, particularly in improving the precision score. 
 1. Our model's recall score of 70.3% means that the model correctly identified approximately 70.3% of all customers who actually churned. There is need to improve this score to retain the customers who are going to churn. 
 2. Our precision score indicates that only 55% of positively predicted outcomes are accurate. This level of precision may result in misallocation of resources and benefits to customers who are mistakenly predicted to potentially churn, highlighting the need for improvement in our predictive model. 
