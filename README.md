@@ -101,7 +101,7 @@ With RandomforestClassifier we attained an accuracy of 82.5% on the test data, w
 # Detailed End to End Implementation of the Project.
 
 ## Workflows
-- Research folder contains the rough code for building the entire project. 
+- Research folder contains rough code for building the entire project. 
 1. Update config.yaml
 2. Update Schema.yaml
 3. Update params.yaml
