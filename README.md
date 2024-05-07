@@ -1,11 +1,11 @@
 # Stop Customers from Walking Away: Predicting Bank Customer Churn 
 # Webb App
 
-![Application Output](home.png)
+![Application Output](images/home.png)
 
-![Application Output](inputdataapp.png)
+![Application Output](images/inputdataapp.png)
 
-![Application Output](resultimage.png)
+![Application Output](images/resultimage.png)
 
 
 
@@ -36,7 +36,7 @@ Ultimately preventing customer churn and improving the bank's customer retention
 
 
 # Workflow of the project
-![Application Output](workflow.png)
+![Application Output](images/workflow.png)
 
 
 # Key Components
